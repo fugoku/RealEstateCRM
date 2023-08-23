@@ -1,5 +1,3 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import Calender from './components/calender';
 import Task from "./task";
 import { useEffect, useState } from "react";
 import { getApi } from "services/api";
@@ -24,21 +22,7 @@ const Index = () => {
 
 
     return (
-        <Tabs >
-            <TabList sx={{ '& button:focus': { boxShadow: 'none', }, }}>
-                <Tab>Calender</Tab>
-                <Tab >Task</Tab>
-            </TabList>
-
-            <TabPanels>
-                <TabPanel>
-                    <Calender fetchData={fetchData} data={data} />
-                </TabPanel>
-                <TabPanel>
-                    <Task fetchData={fetchData} data={data} />
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
+        <Task fetchData={fetchData} data={data} />
     )
 }
 
