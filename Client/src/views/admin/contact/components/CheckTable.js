@@ -268,7 +268,6 @@ export default function CheckTable(props) {
                         </Text>
                       );
                     }
-
                     return (
                       <Td
                         {...cell?.getCellProps()}
