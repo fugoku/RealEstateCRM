@@ -13,12 +13,7 @@ const PropertyModel = (props) => {
 
 
     const columns = [
-        {
-            Header: "#",
-            accessor: "_id",
-            isSortable: false,
-            width: 10
-        },
+        { Header: "#", accessor: "_id", isSortable: false, width: 10 },
         { Header: 'property Type', accessor: 'propertyType' },
         { Header: "property Address", accessor: "propertyAddress", },
         { Header: "listing Price", accessor: "listingPrice", },
