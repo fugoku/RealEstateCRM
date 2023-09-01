@@ -39,8 +39,8 @@ const MultiContactModel = (props) => {
     const handleSubmit = async () => {
         try {
             setIsLoding(true)
-            onClose()
             setFieldValue(fieldName, uniqueValues)
+            onClose()
             // setSelectedValues([])
         }
         catch (e) {
