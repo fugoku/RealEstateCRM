@@ -1,3 +1,4 @@
+import { AddIcon } from '@chakra-ui/icons';
 import { Button, Flex, FormLabel, Grid, GridItem, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Radio, RadioGroup, Select, Stack, Text, Textarea } from '@chakra-ui/react';
 import Spinner from 'components/spinner/Spinner';
 import { useFormik } from 'formik';
@@ -268,7 +269,7 @@ const AddPhoneCall = (props) => {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button variant='brand' leftIcon={<BsFillTelephoneFill />} disabled={isLoding ? true : false} onClick={handleSubmit}>{isLoding ? <Spinner /> : 'Call'}</Button>
+                    <Button variant='brand' leftIcon={<AddIcon />} disabled={isLoding ? true : false} onClick={handleSubmit}>{isLoding ? <Spinner /> : 'Add'}</Button>
                     <Button onClick={() => {
                         formik.resetForm()
                         onClose()
