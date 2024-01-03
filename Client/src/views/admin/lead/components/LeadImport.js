@@ -55,8 +55,6 @@ function LeadImport() {
         { Header: "Lead Conversion Rate", accessor: "leadConversionRate" },
         { Header: "Lead Nurturing Stage", accessor: "leadNurturingStage" },
         { Header: "Lead Deleted", accessor: "deleted" },
-        { Header: "Lead Created By", accessor: "createBy" },
-        { Header: "Lead Update Date", accessor: "updatedDate" },
         { Header: "Lead Next Action", accessor: "leadNextAction" },
         { Header: "Lead Nurturing Workflow", accessor: "leadNurturingWorkflow" },
         { Header: "Lead Campaign", accessor: "leadCampaign" },
@@ -85,7 +83,6 @@ function LeadImport() {
         leadNurturingStage: '',
         deleted: '',
         createBy: '',
-        updatedDate: '',
         leadNextAction: '',
         leadNurturingWorkflow: '',
         leadCampaign: '',
@@ -101,8 +98,7 @@ function LeadImport() {
                 const leadCreationDate = moment(item[values.leadCreationDate || "leadCreationDate"]);
                 const leadConversionDate = moment(item[values.leadConversionDate || "leadConversionDate"]);
                 const leadFollowUpDate = moment(item[values.leadFollowUpDate || "leadFollowUpDate"]);
-                const updatedDate = moment(item[values.updatedDate || "updatedDate"]);
-
+                
                 return {
                     leadName: item[values.leadName || "leadName"] || '',
                     leadEmail: item[values.leadEmail || "leadEmail"] || '',
@@ -125,7 +121,6 @@ function LeadImport() {
                     leadNurturingStage: item[values.leadNurturingStage || "leadNurturingStage"] || '',
                     deleted: item[values.deleted || "deleted"] || false,
                     createBy: JSON.parse(localStorage.getItem('user'))._id,
-                    updatedDate: updatedDate.isValid() ? item[values.updatedDate || "updatedDate"] || '' : '',
                     leadNextAction: item[values.leadNextAction || "leadNextAction"] || '',
                     leadNurturingWorkflow: item[values.leadNurturingWorkflow || "leadNurturingWorkflow"] || '',
                     leadCampaign: item[values.leadCampaign || "leadCampaign"] || '',
