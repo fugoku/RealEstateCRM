@@ -56,7 +56,7 @@ const DeleteFiled = (props) => {
                     <ModalHeader>Delete {props.moduleName}{props.method === 'one' ? '' : 's'}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        Are You Sure To Delete selated {props.moduleName}{props.method === 'one' ? '' : 's'} filed?
+                        Are You Sure To Delete selected {props.moduleName}{props.method === 'one' ? '' : 's'} filed?
                     </ModalBody>
                     <ModalFooter>
                         <Button colorScheme="red" mr={2} onClick={handleDeleteClick} disabled={isLoding ? true : false} >{isLoding ? <Spinner /> : 'Yes'}</Button>
