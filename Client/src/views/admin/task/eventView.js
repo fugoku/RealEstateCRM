@@ -22,7 +22,7 @@ const EventView = (props) => {
     const fetchViewData = async () => {
         if (info) {
             setIsLoding(true)
-            let result = await getApi('api/task/view/', info?.event ? info?.event?._def?.extendedProps?._id : info);
+            let result = await getApi('api/task/view/', info?.event ? info?.event?.id : info);
             setData(result?.data);
             setIsLoding(false)
         }
@@ -34,7 +34,7 @@ const EventView = (props) => {
 
     const handleViewOpen = () => {
         if (info?.event) {
-            navigate(`/view/${info?.event?._def?.extendedProps?._id}`)
+            navigate(`/view/${info?.event?.id}`)
         }
         else {
             navigate(`/view/${info}`)
@@ -110,12 +110,12 @@ const EventView = (props) => {
 
                         </ModalBody>
                         <DrawerFooter>
-                            {access?.view && <IconButton variant='outline' colorScheme={'green'} onClick={() => handleViewOpen()} borderRadius="10px" size="md" icon={<ViewIcon />} />}
-                            {access?.update && <IconButton variant='outline' onClick={() => setEdit(true)} ml={3} borderRadius="10px" size="md" icon={<EditIcon />} />}
-                            {access?.delete && <IconButton colorScheme='red' onClick={() => setDelete(true)} ml={3} borderRadius="10px" size="md" icon={<DeleteIcon />} />}
+                            {access?.view || user?.role === "superAdmin" && <IconButton variant='outline' colorScheme={'green'} onClick={() => handleViewOpen()} borderRadius="10px" size="md" icon={<ViewIcon />} />}
+                            {access?.update || user?.role === "superAdmin" && <IconButton variant='outline' onClick={() => setEdit(true)} ml={3} borderRadius="10px" size="md" icon={<EditIcon />} />}
+                            {access?.delete || user?.role === "superAdmin" && <IconButton colorScheme='red' onClick={() => setDelete(true)} ml={3} borderRadius="10px" size="md" icon={<DeleteIcon />} />}
 
-                            <EditTask setAction={setAction} isOpen={edit} onClose={setEdit} viewClose={onClose} id={info?.event ? info?.event?._def?.extendedProps?._id : info} from="view" />
-                            <DeleteTask fetchData={props.fetchData} isOpen={deleteModel} onClose={setDelete} viewClose={onClose} url='api/task/delete/' method='one' id={info?.event ? info?.event?._def?.extendedProps?._id : info} />
+                            <EditTask setAction={setAction} isOpen={edit} onClose={setEdit} viewClose={onClose} id={info?.event ? info?.event?.id : info} from="view" />
+                            <DeleteTask fetchData={props.fetchData} isOpen={deleteModel} onClose={setDelete} viewClose={onClose} url='api/task/delete/' method='one' id={info?.event ? info?.event?.id : info} />
                         </DrawerFooter>
                     </>}
             </ModalContent>
