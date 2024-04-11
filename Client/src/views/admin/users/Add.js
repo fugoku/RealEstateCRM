@@ -9,7 +9,6 @@ import { toast } from 'react-toastify';
 import { userSchema } from 'schema';
 import { postApi } from 'services/api';
 
-
 const AddUser = (props) => {
     const { onClose, isOpen, setAction } = props
     const [isLoding, setIsLoding] = useState(false)
